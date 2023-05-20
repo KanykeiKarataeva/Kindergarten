@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/card.css" />
+    <title>Aruu</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="./img/logo.jpg"
+            alt="Logo"
+            width="30"
+            height="24"
+            class="d-inline-block align-text-center"
+          />
+          Aruu
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Мои Дети
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">ребёнок 1</a></li>
+
+                <li><a class="dropdown-item" href="#">ребёнок 2</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">O нас</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Родителям
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >1. Часто задаваемые вопросы</a
+                  >
+                </li>
+
+                <li><a class="dropdown-item" href="#">2. Читаем детям</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Услуги</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Галерея
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">1. Фото</a></li>
+
+                <li><a class="dropdown-item" href="#">2. Видео</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Контакты</a>
+            </li>            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1>Choose Payment</h1>
+      <p id="choosen-paymenttype">Credit Card</p>
+      <ul class="payment-types">
+        <li class="paymenttype pp unselected-left">
+          <div class="box">
+            <header>
+              <div class="card" id="pp-card">
+                <div class="flipper">
+                  <div class="front">
+                    <div class="shine"></div>
+                    <div class="shadow"></div>
+                    <div class="card-bg">
+                      <img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/513985/pp-front-bg.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <form>
+              <div class="form-content">
+                <p><strong>About</strong></p>
+                <p>
+                  This is a basic concept for a payment, checkout process. The
+                  user can select between the different payment types, each type
+                  has a seperate form to fill in the required data for the
+                  transaction. What I tried to provide:
+                </p>
+                <ul>
+                  <li>
+                    A quick and easy way to fill the required form fields.
+                  </li>
+                  <li>Mobile friendly keyboard display</li>
+                  <li>Disabling auto-correction and spellcheck for names</li>
+                  <li>Avoid dropdown fields for a better UX.</li>
+                </ul>
+              </div>
+            </form>
+          </div>
+        </li>
+        <li class="paymenttype selected cc">
+          <div class="box">
+            <header>
+              <div class="card" id="cc-card">
+                <div class="flipper">
+                  <div class="front">
+                    <div class="shine"></div>
+                    <div class="shadow"></div>
+                    <div class="card-bg">
+                      <img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/513985/cc-front-bg.png"
+                      />
+                    </div>
+                    <div class="card-content">
+                      <div class="credit-card-type"></div>
+                      <div class="card-number">
+                        <span>1234 1234 1234 1234</span>
+                        <span>1234 1234 1234 1234</span>
+                      </div>
+                      <div class="card-holder">
+                        <em>Card holder</em>
+                        <span>Your Name</span>
+                        <span>Your Name</span>
+                      </div>
+                      <div class="validuntil">
+                        <em>Expire</em>
+                        <div class="e-month">
+                          <span> MM </span>
+                          <span> MM </span>
+                        </div>
+                        <div class="e-divider">
+                          <span> / </span>
+                          <span> / </span>
+                        </div>
+                        <div class="e-year">
+                          <span> YY </span>
+                          <span> YY </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="back">
+                    <div class="shine"></div>
+                    <div class="shadow"></div>
+                    <div class="card-bg">
+                      <img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/513985/cc-back-bg-new.png"
+                      />
+                    </div>
+                    <div class="ccv">
+                      <em>CCV Number</em>
+                      <strong></strong>
+                    </div>
+                    <div class="card-content">
+                      <div class="card-number">
+                        <span>4111 1111 1111 1111</span>
+                        <span>4111 1111 1111 1111</span>
+                      </div>
+                      <div class="card-holder">
+                        <span>Your Name</span>
+                        <span>Your Name</span>
+                      </div>
+                      <div class="validuntil">
+                        <span>
+                          <strong class="e-month">MM</strong> /
+                          <strong class="e-year">YY</strong>
+                        </span>
+                        <span>
+                          <strong class="e-month">MM</strong> /
+                          <strong class="e-year">YY</strong>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            <form>
+              <div class="form-content">
+                <div class="field">
+                  <input type="tel" id="cardnumber" maxlength="20" />
+                  <span class="focus-bar"></span>
+                  <label for="cardnumber">Card number</label>
+                </div>
+                <div class="field">
+                  <input
+                    type="text"
+                    autocorrect="off"
+                    spellcheck="false"
+                    id="cardholder"
+                    maxlength="25"
+                  />
+                  <span class="focus-bar"></span>
+                  <label for="cardholder">Card holder (Name on card)</label>
+                </div>
+                <div class="field-group">
+                  <div class="col-50">
+                    <label for="expires-month">Expire (Valid until)</label>
+                    <div class="field expire-date">
+                      <div>
+                        <input
+                          type="tel"
+                          id="expires-month"
+                          placeholder="MM"
+                          allowed-pattern="[0-9]"
+                          maxlength="2"
+                        />
+                        <span class="focus-bar"></span>
+                      </div>
+                      <div class="divider">/</div>
+                      <div>
+                        <input
+                          type="tel"
+                          id="expires-year"
+                          placeholder="YY"
+                          allowed-pattern="[0-9]"
+                          maxlength="2"
+                        />
+                        <span class="focus-bar"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-50">
+                    <div class="field ccv">
+                      <input
+                        type="tel"
+                        id="ccv"
+                        autocomplete="off"
+                        maxlength="3"
+                      />
+                      <span class="focus-bar"></span>
+                      <label for="ccv">CCV</label>
+                    </div>
+                  </div>
+                </div>
+                <button><span>Submit</span></button>
+              </div>
+            </form>
+          </div>
+        </li>
+        <li class="paymenttype ec unselected-right">
+          <div class="box">
+            <header>
+              <div class="card" id="ec-card">
+                <div class="flipper">
+                  <div class="front">
+                    <div class="shine"></div>
+                    <div class="shadow"></div>
+                    <div class="card-bg">
+                      <img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/513985/ec-front-bg.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <form>
+              <div class="form-content">
+                <p><strong>This is just a demo</strong></p>
+                <p>
+                  It is neither complete, nor optimized code. In CSS it is
+                  playing around with text-shadow, transformations, transitions
+                  and a few animations. Some quick coded JavaScript to handle
+                  the required interactions. Anyway it might be an inspiration
+                  or a starting point.
+                </p>
+                <p>Made with &#10084; by webandapp.fr</p>
+              </div>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <div class="col-md-4 d-flex justify-content-start align-items-center">
+          <a
+            href="/"
+            class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
+          >
+            <img
+              class="bi"
+              width="30"
+              height="24"
+              src="./img/logo.jpg"
+              alt=""
+            />
+            <use xlink:href="#"></use>
+          </a>
+          <span class="mb-3 mb-md-0 text-muted">© 2023 Aruu</span>
+        </div>
+
+        <ul
+          class="nav col-md-4 p-3 justify-content-end align-items-center list-unstyled d-flex"
+        >
+          <li class="ms-3 p-2">
+            <a class="text-muted" href="#">
+              <span class="mb-3 mb-md-0 text-muted">
+                Кыргызстан, г. Бишкек ул. Ахунбаева 12/3
+              </span>
+              <use xlink:href="#whatsapp"></use>
+            </a>
+          </li>
+          <li class="ms-3 p-2">
+            <a class="text-muted" href="#"
+              ><img width="24" height="24" src="./img/location.svg" alt="" />
+              <use xlink:href="#whatsapp"></use>
+            </a>
+          </li>
+          <li class="ms-3 p-2">
+            <a class="text-muted" href="#"
+              ><img width="24" height="24" src="./img/whatsapp.svg" alt="" />
+              <use xlink:href="#whatsapp"></use>
+            </a>
+          </li>
+          <li class="ms-3 p-2">
+            <a class="text-muted" href="#"
+              ><img width="24" height="24" src="./img/instagram.svg" alt="" />
+              <use xlink:href="#instagram"></use>
+            </a>
+          </li>
+          <li class="ms-3 p-2">
+            <a class="text-muted" href="#"
+              ><img width="24" height="24" src="./img/facebook.svg" alt="" />
+              <use xlink:href="#facebook"></use>
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+    ></script>
+    <script src="./js/card.js"></script>
+  </body>
+</html>

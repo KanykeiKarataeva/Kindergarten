@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Aruu</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./img/logo.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-center" />
+                Aruu
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Мои Дети
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">ребёнок 1</a></li>
+
+                            <li><a class="dropdown-item" href="#">ребёнок 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">O нас</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Родителям
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">1. Часто задаваемые вопросы</a></li>
+
+                            <li><a class="dropdown-item" href="#">2. Читаем детям</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Услуги</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Галерея
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">1. Фото</a></li>
+
+                            <li><a class="dropdown-item" href="#">2. Видео</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Контакты</a>
+                    </li>
+                    <div class="ch">
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="#">
+                                <!-- Button trigger modal -->
+                                <button type="button btn-primary" class="btn btn-light border border-primary"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                    Sign In
+                                </button>
+                                <!-- Modal SignIN -->
+                                <div class="modal fade" id="exampleModal1" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <!-- Email input -->
+                                                    <div class="form-outline mb-3">
+                                                        <label class="form-label" for="email">Email address</label>
+                                                        <input type="email" id="email" name="email"
+                                                            placeholder="Email Address" class="form-control" />
+                                                    </div>
+
+                                                    <!-- Password input -->
+                                                    <div class="form-outline">
+                                                        <label class="form-label" for="password">Password</label>
+                                                        <input type="password" id="password" name="password"
+                                                            placeholder="Password" class="form-control" />
+                                                    </div>
+
+                                                    <!-- 2 column grid layout for inline styling -->
+                                                    <div class="row">
+                                                        <div class="col mb-3">
+
+                                                            <!-- Simple link -->
+                                                            <a href="#!">Forgot password?</a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Submit button -->
+                                                    <button type="submit" class="btn btn-primary btn-block">Sign
+                                                        in</button>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <!-- <button type="button" class="btn btn-primary">Sign in</button> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="#">
+                                <!-- Button trigger modal -->
+                                <button type="button btn btn-success" class="btn btn-light border border-success"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                    Sign Up
+                                </button>
+                                <!-- Modal SignUP -->
+                                <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <!-- Name input -->
+                                                    <div class="form-outline mb-2">
+                                                        <label class="form-label" for="name">Name</label>
+                                                        <input type="text" id="name" name="name" placeholder="Name"
+                                                            class="form-control" />
+                                                    </div>
+
+                                                    <!-- Surname input -->
+                                                    <div class="form-outline mb-2">
+                                                        <label class="form-label" for="sname">Surname</label>
+                                                        <input type="text" id="sname" name="sname" placeholder="Surname"
+                                                            class="form-control" />
+                                                    </div>
+
+                                                    <!-- Home Address input -->
+                                                    <div class="form-outline mb-2">
+                                                        <label class="form-label" for="haddress">Home Address</label>
+                                                        <input type="text" id="haddress" name="haddress"
+                                                            placeholder="Home Address" class="form-control" />
+                                                    </div>
+
+                                                    <!-- Phone Number input -->
+                                                    <div class="form-outline mb-2">
+                                                        <label class="form-label" for="phone">Phone Number</label>
+                                                        <input type="tel" id="phone" name="phone"
+                                                            placeholder="+996-xxx-xx-xx-xx"
+                                                            pattern="\+996\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}\-[0-9]{2}"
+                                                            class="form-control" />
+                                                    </div>
+
+                                                    <!-- Email input -->
+                                                    <div class="form-outline mb-2">
+                                                        <label class="form-label" for="email">Email address</label>
+                                                        <input type="email" id="email" name="email"
+                                                            placeholder="Email Address" class="form-control" />
+                                                    </div>
+
+                                                    <!-- Password input -->
+                                                    <div class="form-outline mb-2">
+                                                        <label class="form-label" for="password">Password</label>
+                                                        <input type="password" id="password" name="password"
+                                                            placeholder="Password" class="form-control" />
+                                                    </div>
+
+                                                    <!-- Passport front input -->
+                                                    <div class="mb-3">
+                                                        <label for="fileF" class="form-label">Passport Front</label>
+                                                        <input class="form-control" type="file" id="fileF" name="fileF">
+                                                    </div>
+
+                                                    <!-- Passport back input -->
+                                                    <div class="mb-3">
+                                                        <label for="fileB" class="form-label">Passport Back</label>
+                                                        <input class="form-control" type="file" id="fileB" name="fileB">
+                                                    </div>
+
+                                                    <!-- Submit button -->
+                                                    <button type="submit"
+                                                        class="btn btn-success btn-block">Register</button>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <!-- <button type="button" class="btn btn-success">Sign up</button> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="section about-section gray-bg" id="about">
+            <div class="container">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-6">
+                        <div class="about-text go-to">
+                            <h3 class="dark-color">Осипова Валентина Сергеевна</h3>
+                            <h6 class="theme-color lead">Учитель</h6>
+                            <div class="row about-list">
+                                <div class="col-md-6">
+                                    <div class="media">
+                                        <label>Дата рождения</label>
+                                        <p>15 февраля 1982 года</p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Возраст</label>
+                                        <p>41 год</p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Страна проживания</label>
+                                        <p>Кыргызстан</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="media">
+                                        <label>Адрес</label>
+                                        <p>ул. Киевская 26/2, г. Бишкек</p>
+                                    </div>
+                                    <div class="media">
+                                        <label>E-mail</label>
+                                        <p>osipovva@gmail.com</p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Номер телефона</label>
+                                        <p>+996 552 18 76 54</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-avatar">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar8.png" title="" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="counter">
+                    <div class="row">
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2" data-to="3" data-speed="3">3</h6>
+                                <p class="m-0px font-w-600">Количество групп</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2" data-to="12" data-speed="12">12 лет</h6>
+                                <p class="m-0px font-w-600">Стаж работы</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2" data-to="48" data-speed="48">48 ч</h6>
+                                <p class="m-0px font-w-600">Количество пропусков</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2" data-to="11" data-speed="11">11</h6>
+                                <p class="m-0px font-w-600">Ещё какое-нибудь свойство</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex justify-content-start align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <img class="bi" width="30" height="24" src="./img/logo.jpg" alt="">
+                    <use xlink:href="#"></use>
+                </a>
+                <span class="mb-3 mb-md-0 text-muted">© 2023 Aruu</span>
+            </div>
+
+            <ul class="nav col-md-4 p-3 justify-content-end align-items-center list-unstyled d-flex">
+                <li class="ms-3 p-2"><a class="text-muted" href="#">
+                        <span class="mb-3 mb-md-0 text-muted">
+                            Кыргызстан, г. Бишкек ул. Ахунбаева 12/3
+                        </span>
+                        <use xlink:href="#whatsapp"></use>
+                    </a>
+                </li>
+                <li class="ms-3 p-2"><a class="text-muted" href="#"><img width="24" height="24" src="./img/location.svg"
+                            alt="">
+                        <use xlink:href="#whatsapp"></use>
+                    </a></li>
+                <li class="ms-3 p-2"><a class="text-muted" href="#"><img width="24" height="24" src="./img/whatsapp.svg"
+                            alt="">
+                        <use xlink:href="#whatsapp"></use>
+                    </a></li>
+                <li class="ms-3 p-2"><a class="text-muted" href="#"><img width="24" height="24"
+                            src="./img/instagram.svg" alt="">
+                        <use xlink:href="#instagram"></use>
+                    </a></li>
+                <li class="ms-3 p-2"><a class="text-muted" href="#"><img width="24" height="24" src="./img/facebook.svg"
+                            alt="">
+                        <use xlink:href="#facebook"></use>
+                    </a></li>
+            </ul>
+        </footer>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
