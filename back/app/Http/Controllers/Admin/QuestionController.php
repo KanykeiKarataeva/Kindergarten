@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateResumeQuestionRequest;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Lang;
 
 class QuestionController extends Controller
 {
@@ -47,7 +48,8 @@ class QuestionController extends Controller
 
     public function delete(Question $question){
         $question->delete();
-        return redirect()->route('admin.resume.question.index')->with('status', 'The question was deleted');
+        $message = Lang::get('lang.delete_answer_questions');
+        return redirect()->route('admin.resume.question.index')->with('status', $message);
     }
 
 }

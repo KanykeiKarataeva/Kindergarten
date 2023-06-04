@@ -1,12 +1,6 @@
 @extends('layouts.admin_layout')
 @section('content')
     <div class="content-wrapper">
-        @if (session('status'))
-            <div class="alert alert-dismissible white" style="background-color: #9b73f2">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                {{ session('status') }}
-            </div>
-        @endif
         <div class="container" style="margin-top: 10px;">
             <button type="button" class="btn btn-gradient-primary" style="margin-right:85%;" id="addGroupBtnId" onclick="showForm()">@lang('lang.add_group')</button>
             <div class="d-none" id="addGroupId">
@@ -92,7 +86,8 @@
             <div class="card-header text-center" >
                 <h3>@lang('lang.group_list')</h3>
                 @if (session('status'))
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-dismissible white" style="background-color: #9b73f2">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         {{ session('status') }}
                     </div>
                 @endif
@@ -140,10 +135,10 @@
                                 <div style="float: left;
                                 display: block;
                                 width: 25%;" class="text-center">
-                                    <form onclick="return confirm('@lang('lang.delete_question_group')')" action="{{route('admin.group.delete', $group->id)}}" method="POST">
+                                    <form action="{{route('admin.group.delete', $group->id)}}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button title="submit" class="border-0 bg-transparent">
+                                        <button id="delete_button" type="button" class="border-0 bg-transparent" onclick="deletedBtn(this)">
                                             <i title="delete" class="fas fa-trash text-danger" role="button"></i>
                                         </button>
                                     </form>
@@ -162,6 +157,14 @@
             </div>
         </div>
         <script>
+            function deletedBtn(button){
+                let text = "@lang('lang.delete_question_group')";
+                if (confirm(text) === true) {
+                    button.setAttribute('type', 'submit');
+                } else {
+                    button.setAttribute('type', 'button');
+                }
+            }
             function searchById(value){
                 let table = document.getElementById('groupTable');
                 let rows = table.rows;

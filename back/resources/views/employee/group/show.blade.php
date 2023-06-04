@@ -44,32 +44,36 @@
                                         <p>{{$children->gender}}</p>
                                     </div>
                                 </div>
+                                <br>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <label> <p class="text-bold-700 text-uppercase mb-0 violet" style="color: #5f1dea">@lang('lang.child_parent')</p></label>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-5">
                                         <p>{{$children->parent_name}} {{$children->parent_surname}}</p>
                                     </div>
                                 </div>
-                                <div class="row" hidden="">
-                                    <div class="col-md-3">
-                                        <label> <p class="text-bold-700 text-uppercase mb-0 violet" style="color: #5f1dea">@lang('lang.child_group')</p></label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p>{{$children->group_name}}</p>
-                                    </div>
-                                </div>
+                                <br>
                                 <div class="row">
-                                    <div class="col-md-3">
-                                        <label> <p class="text-bold-700 text-uppercase mb-0 violet" style="color: #5f1dea">@lang('lang.child_birth_cert')</p></label>
+                                    <div class="col-md-5">
+                                        <label> <p class="text-bold-700 text-uppercase mb-0 violet" style="color: #5f1dea">@lang('lang.child_number')</p></label>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <img class="img-fluid" src="{{asset($children->birth_certificate)}}">                                    </div>
+                                    <div class="col-md-3">
+                                        <p>{{$children->phone_number}}</p>
+                                    </div>
                                 </div>
                                 <br>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-8">
+                                        <label> <p class="text-bold-700 text-uppercase mb-0 violet" style="color: #5f1dea">@lang('lang.child_birth_cert')</p></label>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <img class="img-fluid" src="{{asset($children->birth_certificate)}}">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-8">
                                         <label> <p class="text-bold-700 text-uppercase mb-0 violet" style="color: #5f1dea">@lang('lang.child_med_cert')</p></label>
                                     </div>
                                     <div class="col-lg-6">
@@ -77,7 +81,7 @@
                                 </div>
                                 <br>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-8">
                                         <label> <p class="text-bold-700 text-uppercase mb-0 violet" style="color: #5f1dea">@lang('lang.child_med_dis')</p></label>
                                     </div>
                                     <div class="col-lg-6">

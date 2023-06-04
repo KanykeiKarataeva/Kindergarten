@@ -10,6 +10,7 @@ use App\Services\Admin\UserService;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
@@ -48,6 +49,7 @@ class UserController extends Controller
 
     public function delete(User $user){
         $user->delete();
-        return redirect()->route('admin.user.index')->with('status','User is deleted');
+        $message = Lang::get('lang.delete_answer_user');
+        return redirect()->route('admin.user.index')->with('status',$message);
     }
 }

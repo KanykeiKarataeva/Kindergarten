@@ -9,6 +9,7 @@ use App\Models\Group;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Lang;
 
 
 class EnrollController
@@ -53,6 +54,7 @@ class EnrollController
 
     public function delete(Enroll $enroll){
         $enroll->delete();
-        return redirect()->route('admin.enroll.index')->with('status', 'Enrolling was denied.');
+        $message = Lang::get('lang.delete_answer_queue');
+        return redirect()->route('admin.enroll.index')->with('status', $message);
     }
 }

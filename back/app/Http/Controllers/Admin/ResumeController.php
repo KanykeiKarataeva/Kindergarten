@@ -8,6 +8,7 @@ use App\Models\Question;
 use App\Models\Resume;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Lang;
 
 class ResumeController extends Controller
 {
@@ -29,6 +30,7 @@ class ResumeController extends Controller
 
     public function delete(Resume $resume){
         $resume->delete();
-        return redirect()->route('admin.resume.index')->with('status', 'The resume was deleted');
+        $message = Lang::get('lang.delete_answer_resume');
+        return redirect()->route('admin.resume.index')->with('status', $message);
     }
 }

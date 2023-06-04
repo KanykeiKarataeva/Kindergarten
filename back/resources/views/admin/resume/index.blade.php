@@ -1,12 +1,13 @@
 @extends('layouts.admin_layout')
 @section('content')
     <div class="content-wrapper">
-        <div class="container" style="margin-top: 10px;">
+        <div class="content-wrapper">
             <div class="demo-html" style="width: 70%;display: block; margin-left: auto; margin-right: auto;">
                 <div class="card-header text-center" >
                     <h3>@lang('lang.comp_resume_list')</h3>
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-dismissible white" style="background-color: #9b73f2">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                             {{ session('status') }}
                         </div>
                     @endif
@@ -18,10 +19,10 @@
                             <th class="position-relative pr-4" style="vertical-align:middle;overflow:hidden;cursor:pointer;width:5%">
                                 id
                             </th>
-                            <th class="position-relative pr-4" style="vertical-align:middle;overflow:hidden;cursor:pointer;width:40%">
+                            <th class="position-relative pr-4" style="vertical-align:middle;overflow:hidden;cursor:pointer;width:30%">
                                 @lang('lang.full_name')
                             </th>
-                            <th class="position-relative pr-4" style="vertical-align:middle;overflow:hidden;cursor:pointer;width:20%">
+                            <th class="position-relative pr-4" style="vertical-align:middle;overflow:hidden;cursor:pointer;width:30%">
                                 @lang('lang.date_of_comp')
                             </th>
                             <th class="position-relative pr-4" style="text-align: center;vertical-align:middle;overflow:hidden;cursor:pointer;width:40%">
@@ -53,7 +54,7 @@
                                         <form action="{{route('admin.resume.delete', $resume->id)}}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button title="delete" class="border-0 bg-transparent" onclick="return confirm('@lang('lang.delete_question_resume')?')">
+                                            <button id="delete_button" type="button" class="border-0 bg-transparent" onclick="deletedBtn(this)">
                                                 <i title="delete" class="fas fa-trash text-danger" role="button"></i>
                                             </button>
                                         </form>
@@ -71,6 +72,14 @@
             </div>
         </div>
         <script>
+            function deletedBtn(button){
+                let text = "@lang('lang.delete_question_resume')";
+                if (confirm(text) === true) {
+                    button.setAttribute('type', 'submit');
+                } else {
+                    button.setAttribute('type', 'button');
+                }
+            }
             function searchById(value){
                 let table = document.getElementById('resumeTable');
                 let rows = table.rows;

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use App\Models\MainGallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Storage;
 
 class MainGalleryController extends Controller
@@ -41,6 +42,7 @@ class MainGalleryController extends Controller
 
     public function delete(MainGallery $gallery){
         $gallery->delete();
-        return redirect()->route('admin.mainGallery.index');
+        $message = Lang::get('lang.delete_answer');
+        return redirect()->route('admin.mainGallery.index')->with('status', $message);
     }
 }

@@ -65,7 +65,7 @@
                                     </div>
                                     <br>
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-8">
                                             <label> <p class="text-bold-700 text-uppercase mb-0 violet" style="color: #5f1dea">@lang('lang.child_parent')</p></label>
                                         </div>
                                         <div class="col-lg-6">
@@ -88,8 +88,11 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-8">
                                             <label> <p class="text-bold-700 text-uppercase mb-0 violet" style="color: #5f1dea">@lang('lang.child_birth_cert')</p></label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <img class="img-fluid" src="{{asset($children->birth_certificate)}}">
                                         </div>
                                         <div class="col-lg-6">
                                             <input type="file" class="form-control" id="birth_certificate" name="birth_certificate" value=""  autofocus="">
@@ -97,8 +100,11 @@
                                     </div>
                                     <br>
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-8">
                                             <label> <p class="text-bold-700 text-uppercase mb-0 violet" style="color: #5f1dea">@lang('lang.child_med_cert')</p></label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <img class="img-fluid" src="{{asset($children->med_certificate)}}">
                                         </div>
                                         <div class="col-lg-6">
                                             <input type="file" class="form-control" id="med_certificate" name="med_certificate" value=""  autofocus="">
@@ -106,8 +112,11 @@
                                     </div>
                                     <br>
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-8">
                                             <label> <p class="text-bold-700 text-uppercase mb-0 violet" style="color: #5f1dea">@lang('lang.child_med_dis')</p></label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <img class="img-fluid" src="{{asset($children->med_disability)}}">
                                         </div>
                                         <div class="col-lg-6">
                                             <input type="file" class="form-control" id="med_disability" name="med_disability" value=""  autofocus="">

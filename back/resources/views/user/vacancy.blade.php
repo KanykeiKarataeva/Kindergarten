@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="wow fadeIn" data-wow-delay="0.1s">
                     <div class="h-100 d-flex flex-column justify-content-center p-5">
-                        <h3 class="team-text text-center">@lang('lang.vac_msg')</h3>
+                        <h2 class="team-text text-center">@lang('lang.vac_msg')</h2>
                         <br>
                             <div class="row g-3">
                                 <div class="col-sm-6">

@@ -13,6 +13,7 @@ use App\Services\Admin\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -98,7 +99,8 @@ class GroupController extends Controller
 
     public function delete(Group $group){
         $group->delete();
-        return redirect()->route('admin.group.index')->with('status', 'Group is deleted');
+        $message = Lang::get('lang.delete_answer_group');
+        return redirect()->route('admin.group.index')->with('status', $message);
     }
 
     public function Gallery(Group $group){

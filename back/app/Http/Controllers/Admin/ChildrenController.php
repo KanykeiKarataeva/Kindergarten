@@ -9,12 +9,13 @@ use App\Models\Group;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Storage;
 
 class ChildrenController extends Controller
 {
     public function index(){
-        $children = Child::all();
+        $children = Child::where('deleted', 0)->get();
         $parents = User::where('role', 'ROLE_PARENT')->get();
         $groups = Group::all();
         return view('admin.children.index', compact('children', 'parents', 'groups'));
@@ -109,7 +110,12 @@ class ChildrenController extends Controller
     }
 
     public function delete(Child $child){
-        $child->delete();
-        return redirect()->route('admin.children.index')->with('status','Child is deleted');
+        DB::beginTransaction();
+        $child->update([
+            'deleted' => 1
+        ]);
+        DB::commit();
+        $message = Lang::get('lang.delete_answer_child');
+        return redirect()->route('admin.children.index')->with('status',$message);
     }
 }

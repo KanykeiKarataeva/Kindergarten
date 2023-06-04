@@ -172,13 +172,14 @@
         </div>
         <br>
         <div class="demo-html" style="width: 70%;display: block; margin-left: auto; margin-right: auto;">
-            @if (session('status'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
             <div class="card-header text-center" >
                 <h3>@lang('lang.users_list')</h3>
+                @if (session('status'))
+                    <div class="alert alert-dismissible white" style="background-color: #9b73f2">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        {{ session('status') }}
+                    </div>
+                @endif
             </div>
             <div class="position-relative table-responsive">
                 <table class="table table-hover">
@@ -242,7 +243,7 @@
                                         <form action="{{route('admin.user.delete', $user->id)}}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button title="delete" class="border-0 bg-transparent" onclick="return confirm('@lang('lang.delete_question_user')')">
+                                            <button id="delete_button" type="button" class="border-0 bg-transparent" onclick="deletedBtn(this)">
                                                 <i title="delete" class="fas fa-trash text-danger" role="button"></i>
                                             </button>
                                         </form>
@@ -255,6 +256,14 @@
             </div>
     </div>
         <script>
+            function deletedBtn(button){
+                let text = "@lang('lang.delete_question_group')";
+                if (confirm(text) === true) {
+                    button.setAttribute('type', 'submit');
+                } else {
+                    button.setAttribute('type', 'button');
+                }
+            }
             function searchById(value){
                 let table = document.getElementById('userTable');
                 let rows = table.rows;

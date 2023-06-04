@@ -9,6 +9,7 @@ use App\Models\Group;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Storage;
 
 class GroupController extends Controller
@@ -16,12 +17,9 @@ class GroupController extends Controller
      public function index(){
          $children = DB::table('groups')
              ->leftJoin('children', 'children.group_id', '=', 'groups.id')
-             ->leftJoin('users', 'users.id', '=', 'children.parent_id')
              ->where('groups.teacher_id', auth()->user()->id)
-             ->select('children.id', 'children.name', 'children.surname', 'children.birth_date',
-             'children.gender', 'users.name as parent_name', 'users.surname as parent_surname')
              ->get();
-         $parents = User::all();
+         $parents = User::where('deleted', 0)->get();
          $groups = Group::where('teacher_id', auth()->user()->id)->get();
          return view('employee.group.index', compact('children', 'parents', 'groups'));
      }
@@ -32,7 +30,7 @@ class GroupController extends Controller
              ->leftJoin('users', 'users.id', '=', 'children.parent_id')
              ->where('children.id', $child)
              ->select('children.id', 'children.name', 'children.surname', 'children.birth_date',
-                 'children.gender', 'users.name as parent_name', 'users.surname as parent_surname',
+                 'children.gender', 'users.name as parent_name', 'users.surname as parent_surname', 'users.phone_number',
                 'groups.name as group_name', 'children.photo as photo', 'children.birth_certificate',
                 'children.med_certificate', 'children.med_disability')
              ->first();
@@ -129,7 +127,7 @@ class GroupController extends Controller
             'med_disability' => $med_disability,
             'payment' => false
         ]);
-        return response($child);
+        return redirect()->route('employee.group.index')->with('status','Данные ребенка были обновлены.');
     }
 
     public function delete(Child $child){
@@ -138,7 +136,8 @@ class GroupController extends Controller
             'deleted' => 1
         ]);
          DB::commit();
-        return back()->with('status','Ребенок был удален из группы');
+         $message = Lang::get('lang.delete_answer_child');
+        return back()->with('status',$message);
     }
 
 }

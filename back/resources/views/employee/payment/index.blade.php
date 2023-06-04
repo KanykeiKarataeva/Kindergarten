@@ -118,7 +118,7 @@
                     $characters[1] = $characters[1]-$index;
                     $currentDate = implode('', $characters);
                 @endphp
-                <button class="accordion" >{{\Carbon\Carbon::create(null, $currentDate, null)->format('F')}}</button>
+                <button class="accordion" >{{\Carbon\Carbon::create(null, $currentDate, 1)->format('F')}}</button>
                 <div class="panel">
                     <div class="position-relative table-responsive">
                         @php $range = \Carbon\Carbon::createFromDate(2023, $currentDate)->daysInMonth; @endphp
