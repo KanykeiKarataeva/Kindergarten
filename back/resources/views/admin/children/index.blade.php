@@ -78,7 +78,11 @@
                             <select class="form-control col-md-12" name="group_id" id="group_id" @error('group_id') is-invalid @enderror required autocomplete="group_id">
                                 <option></option>
                                 @foreach($groups as $group)
-                                    <option value="{{$group->id}}">{{$group->name}}</option>
+                                    @if($amount_child_group[$group->id] < $group->limit)
+                                        <option value="{{$group->id}}">{{$group->name}}</option>
+                                    @else
+                                        <option value="{{$group->id}}" disabled>{{$group->name}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -286,7 +290,7 @@
                 document.getElementById("addChildId").className = "col-8";
             }
             function cancelForm(){
-                document.getElementById("addChildBtnId").className = "btn btn-primary";
+                document.getElementById("addChildBtnId").className = "btn btn-gradient-primary";
                 document.getElementById("addChildId").className = "d-none";
             }
             document.getElementById('form').addEventListener("submit", function (event) {

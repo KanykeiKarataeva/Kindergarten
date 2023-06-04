@@ -16,9 +16,19 @@ class ChildrenController extends Controller
 {
     public function index(){
         $children = Child::where('deleted', 0)->get();
-        $parents = User::where('role', 'ROLE_PARENT')->get();
+        $parents = User::where('deleted', 0)->get();
         $groups = Group::all();
-        return view('admin.children.index', compact('children', 'parents', 'groups'));
+        $amount_child_group = [];
+        foreach ($groups as $group){
+            $count = 0;
+            foreach ($children as $child){
+                if($group->id === $child->group_id){
+                    $count++;
+                }
+            }
+            $amount_child_group[$group->id] = $count;
+        }
+        return view('admin.children.index', compact('children', 'parents', 'groups', 'amount_child_group'));
     }
 
     public function create(Request $request){
@@ -57,6 +67,18 @@ class ChildrenController extends Controller
             'med_disability' => $med_disability
         ]);
         $child->group_id = Group::where('id', $child->group_id)->pluck('name');
+
+        DB::beginTransaction();
+        $parent = User::where('id', $request['parent_id'])->get();
+        $parent = $parent[0];
+        if ($parent->role === 'ROLE_USER')
+            $parent->update([
+                'role' => "ROLE_PARENT"
+            ]);
+        $parent->update([
+            'amount_child' => $parent->amount_child + 1
+        ]);
+        DB::commit();
         return response($child);
     }
 
@@ -110,11 +132,23 @@ class ChildrenController extends Controller
     }
 
     public function delete(Child $child){
+        $parent = User::where('id', $child->parent_id)->get();
+        $parent = $parent[0];
         DB::beginTransaction();
         $child->update([
             'deleted' => 1
         ]);
+        $parent->update([
+            'amount_child' => $parent->amount_child - 1
+        ]);
         DB::commit();
+        if ($parent->amount_child === 0){
+            DB::beginTransaction();
+            $parent->update([
+                'role' => 'ROLE_USER'
+            ]);
+            DB::commit();
+        }
         $message = Lang::get('lang.delete_answer_child');
         return redirect()->route('admin.children.index')->with('status',$message);
     }
