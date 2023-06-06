@@ -1,18 +1,84 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
-        @if (session('status'))
-            <div class="alert alert-success text-center alert-dismissible fade show" style="max-height: 200px; max-width: 700px" role="alert">
-                {{ session('status') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
-    </div>
+    <style>
+        .rate {
+            float: left;
+            height: 46px;
+            padding: 0 10px;
+        }
+        .rate:not(:checked) > input {
+            position:absolute;
+            top:-9999px;
+        }
+        .rate:not(:checked) > label {
+            float:right;
+            width:1em;
+            overflow:hidden;
+            white-space:nowrap;
+            cursor:pointer;
+            font-size:40px;
+            color:#ccc;
+        }
+        .rate:not(:checked) > label:before {
+            content: '★ ';
+        }
+        .rate > input:checked ~ label {
+            color: #ffc700;
+        }
+        .rate:not(:checked) > label:hover,
+        .rate:not(:checked) > label:hover ~ label {
+            color: #deb217;
+        }
+        .rate > input:checked + label:hover,
+        .rate > input:checked + label:hover ~ label,
+        .rate > input:checked ~ label:hover,
+        .rate > input:checked ~ label:hover ~ label,
+        .rate > label:hover ~ input:checked ~ label {
+            color: #c59b08;
+        }
+        .checked {
+            color: orange;
+        }
+        .avatar-button {
+            font-size: 1.5rem;
+            text-align: center;
+            overflow: visible;
+            border: 0;
+            background-color: transparent;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            bottom: 0;
+        }
+
+        .avatar-text {
+            height: 90px;
+            width: 90px;
+            align-items: center;
+            color: #fff;
+            display:block;
+            background-color: #673ab7;
+            font-size: 2.5rem;
+            border-radius: 50%;
+            vertical-align: center;
+            justify-content: center;
+            padding: 0.9rem;
+        }
+
+    </style>
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5">
+        <div>
+            @if (session('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
                 <img class="img-fluid" src="{{asset('new_template/img/IMG_9157.PNG')}}" alt="">
@@ -479,49 +545,104 @@
     <!-- Team End -->
 
 
-{{--    <!-- Testimonial Start -->--}}
-{{--    <div class="container-xxl py-5">--}}
-{{--        <div class="container">--}}
-{{--            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">--}}
-{{--                <h1 class="mb-3">Our Clients Say!</h1>--}}
-{{--                <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>--}}
-{{--            </div>--}}
-{{--            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">--}}
-{{--                <div class="testimonial-item bg-light rounded p-5">--}}
-{{--                    <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>--}}
-{{--                    <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">--}}
-{{--                        <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('new_template/img/testimonial-1.jpg')}}" style="width: 90px; height: 90px;">--}}
-{{--                        <div class="ps-3">--}}
-{{--                            <h3 class="mb-1">Client Name</h3>--}}
-{{--                            <span>Profession</span>--}}
-{{--                        </div>--}}
-{{--                        <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="testimonial-item bg-light rounded p-5">--}}
-{{--                    <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>--}}
-{{--                    <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">--}}
-{{--                        <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('new_template/img/testimonial-2.jpg')}}" style="width: 90px; height: 90px;">--}}
-{{--                        <div class="ps-3">--}}
-{{--                            <h3 class="mb-1">Client Name</h3>--}}
-{{--                            <span>Profession</span>--}}
-{{--                        </div>--}}
-{{--                        <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="testimonial-item bg-light rounded p-5">--}}
-{{--                    <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>--}}
-{{--                    <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">--}}
-{{--                        <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('new_template/img/testimonial-3.jpg')}}" style="width: 90px; height: 90px;">--}}
-{{--                        <div class="ps-3">--}}
-{{--                            <h3 class="mb-1">Client Name</h3>--}}
-{{--                            <span>Profession</span>--}}
-{{--                        </div>--}}
-{{--                        <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <!-- Testimonial End -->--}}
+    <!-- Testimonial Start -->
+    @if(auth()->user())
+        @if(auth()->user()->role != 'ROLE_USER') @endif
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">@lang('lang.feedback')</h1>
+                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    @foreach($feedbacks as $feedback)
+                        <div class="testimonial-item bg-light rounded p-5">
+                            <p class="fs-5">{{$feedback->comment}}</p>
+                            <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                                @if($feedback->profile_photo != NULL)
+                                    <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset($feedback->profile_photo)}}" style="width: 90px; height: 90px;">
+                                @else
+                                    @php $firstLetter = mb_substr($feedback->name, 0, 1); $secondLetter = mb_substr($feedback->surname, 0, 1);@endphp
+                                    <button class="avatar-button">
+                                        <span class="avatar-text">{{$firstLetter}}{{$secondLetter}}</span>
+                                    </button>
+                                @endif
+
+                                <div class="ps-3">
+                                    <h5 class="mb-1">{{$feedback->name}} {{$feedback->surname}}</h5>
+                                    @for($i = 1; $i <= 5; $i++)
+                                        @if($i <= $feedback->stars)
+                                            <span class="fa fa-star checked"></span>
+                                        @else
+                                            <span class="fa fa-star"></span>
+                                        @endif
+                                    @endfor
+                                </div>
+                                <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="d-flex justify-content-center container-xxl py-5">
+                    <button type="button" class="btn btn-primary rounded-pill px-3 d-lg-block"
+                            data-bs-toggle="modal" data-bs-target="#feedback" style="font-size: large">
+                        @lang('lang.leave_feedback')
+                    </button>
+                </div>
+            </div>
+            <div class="modal fade" id="feedback" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">@lang('lang.feedback_form')</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="{{ route('feedback.create') }}" >
+                                @csrf
+                                <div class="field" hidden="">
+                                    <input type="number" id="parent_id" name="parent_id" value="{{auth()->user()->id}}">
+                                </div>
+                                <div class="field">
+                                    <div class="rate">
+                                        <input type="radio" id="star5" name="stars" value="5" />
+                                        <label for="star5" title="5">5 stars</label>
+                                        <input type="radio" id="star4" name="stars" value="4" />
+                                        <label for="star4" title="4">4 stars</label>
+                                        <input type="radio" id="star3" name="stars" value="3" />
+                                        <label for="star3" title="3">3 stars</label>
+                                        <input type="radio" id="star2" name="stars" value="2" />
+                                        <label for="star2" title="2">2 stars</label>
+                                        <input type="radio" id="star1" name="stars" value="1" />
+                                        <label for="star1" title="1">1 star</label>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <div class="col-12">
+                                        <div class=""><p class="text-purple"></p></div>
+                                        <label for="comment" class="form-label" style="font-weight: 700;">@lang('lang.feedback_comment')</label>
+                                        <div class="form-floating">
+                                            <textarea class="form-control border-0" placeholder="Leave a message here" id="comment" name="comment" style="height: 100px; background-color: #eee8fd" ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Submit button -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary "
+                                            data-bs-dismiss="modal">@lang('lang.cancel')</button>
+                                    <!-- <button type="button" class="btn btn-primary">Sign in</button> -->
+                                    <button type="submit" class="btn btn-primary btn-block">@lang('lang.saveBtn')</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial End -->
+    @endif
+
 @endsection

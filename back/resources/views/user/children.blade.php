@@ -194,7 +194,7 @@
                 @endforeach
             @else
                 <div class="card-body" style="background-color: #eee8fd; display: flex; align-items: center; justify-content: center">
-                    <h3>В галерею еще не добавлено ни одного поста</h3>
+                    <h4>@lang('lang.gallery_no_data')</h4>
                 </div>
             @endif
         </div>
@@ -202,7 +202,7 @@
     <script>
         function showChildInfo() {
             document.getElementById("childInfo").className = "container-xxl flex-grow-1 container-p-y";
-            document.getElementById("childInfoBtn").className = "d-none";
+            document.getElementById("childInfoBtn").className = "btn btn-primary rounded-pill m-3";
         }
 
         function hideChildInfo() {

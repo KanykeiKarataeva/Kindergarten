@@ -55,6 +55,11 @@ Route::group(
         Route::patch('/main/children/update/{child}', [App\Http\Controllers\User\ChildrenController::class, 'update'])->name('children.update');
 
         Route::post('/main/payment', [App\Http\Controllers\User\PaymentController::class, 'index'])->name('payment');
+        Route::get('/main/payment/{child}', [App\Http\Controllers\User\PaymentController::class, 'index'])->name('payment');
+        Route::post('/main/payment/form', [App\Http\Controllers\User\PaymentController::class, 'form'])->name('payment.form');
+        Route::post('/main/payment/create', [App\Http\Controllers\User\PaymentController::class, 'create'])->name('payment.create');
+
+        Route::post('/main/feedback/create', [App\Http\Controllers\User\FeedbackController::class, 'create'])->name('feedback.create');
 
         Route::group(['prefix'=>'employee'], function (){
             Route::get('/index/{user}', App\Http\Controllers\Employee\IndexController::class)->name('employee');
@@ -163,14 +168,15 @@ Route::group(
                 Route::get('/index', [App\Http\Controllers\Admin\PaymentController::class, 'index'])->name('admin.payment.index');
                 Route::post('/create', [App\Http\Controllers\Admin\PaymentController::class, 'create'])->name('admin.payment.create');
             });
-        });
 
+            Route::group(['prefix' => 'feedback'], function (){
+                Route::get('/index', [App\Http\Controllers\Admin\FeedbackController::class, 'index'])->name('admin.feedback.index');
+                Route::delete('/{feedback}', [App\Http\Controllers\Admin\FeedbackController::class, 'delete'])->name('admin.feedback.delete');
+                Route::get('/show/{feedback}', [App\Http\Controllers\Admin\FeedbackController::class, 'show'])->name('admin.feedback.show');
+            });
+        });
     });
 
-
-Route::get('/main/payment/{child}', [App\Http\Controllers\User\PaymentController::class, 'index'])->name('payment');
-Route::post('/main/payment/form', [App\Http\Controllers\User\PaymentController::class, 'form'])->name('payment.form');
-Route::post('/main/payment/create', [App\Http\Controllers\User\PaymentController::class, 'create'])->name('payment.create');
 
 
 
